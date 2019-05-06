@@ -1,0 +1,25 @@
+{
+    "name": "rocket-startup/frontview",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/rocket-startup/viewfront/issues",
+        "source": "https://github.com/rocket-startup/viewfront/"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "twig/twig": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RocketStartup\\FrontView\\": [
+                "src/",
+                "tests/"
+            ]
+        }
+    }
+}
