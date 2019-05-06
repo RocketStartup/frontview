@@ -5,8 +5,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "support": {
-        "issues": "https://github.com/rocket-startup/viewfront/issues",
-        "source": "https://github.com/rocket-startup/viewfront/"
+        "issues": "https://github.com/rocket-startup/frontview/issues",
+        "source": "https://github.com/rocket-startup/frontview/"
     },
     "config": {
         "sort-packages": true
