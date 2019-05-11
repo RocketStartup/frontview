@@ -1,12 +1,11 @@
 {
-    "name": "rocket-startup/frontview",
+    "name": "astronphp/frontview",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "support": {
-        "issues": "https://github.com/rocket-startup/frontview/issues",
-        "source": "https://github.com/rocket-startup/frontview/"
+        "issues": "https://github.com/astronphp/frontview/issues",
+        "source": "https://github.com/astronphp/frontview/"
     },
     "config": {
         "sort-packages": true
@@ -16,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RocketStartup\\FrontView\\": [
+            "Astronphp\\FrontView\\": [
                 "src/",
                 "tests/"
             ]

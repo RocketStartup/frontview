@@ -1,25 +1,20 @@
 <?php
 
-namespace RocketStartup\FrontView;
+namespace Astronphp\FrontView;
 
 class Template{
 
 	private $nameTemplate 			= 'default';
-	private $nameApp 				= 'main';
 	private $replaceAllHtml     	= array();
 	
 	private $useCache 				= false;
 	private $twig 			 		= null;
 	private $fileTemplate 			= '404.tpl';
-	private $pathTemplate 			= 'storage/apps/templates/';
+	private $pathTemplate 			= 'sources/';
 	private $pathCache 				= 'storage/apps/cache/';
 
 	
 	public function __construct(){
-		$appName =  \App::getInstance('App')->nameApplication;
-		
-		$this->nameApplication($appName);
-		
 		return $this;
 	}
 
@@ -29,7 +24,7 @@ class Template{
 			$loader = new \Twig\Loader\FilesystemLoader($this->getPathTemplate());
 
 			$this->twig = new \Twig\Environment($loader, [
-				'cache' => ($this->useCache()==false?false:PATH_ROOT.$this->pathCache.$this->nameApplication().'_'.$this->nameTemplate())
+				'cache' => ($this->useCache()==false?false:PATH_ROOT.$this->pathCache.$this->nameTemplate())
 			]);
 
 			echo $this->twig->render($this->fileTemplate(), $this->replaceAllHtml);
@@ -39,14 +34,6 @@ class Template{
 		}
 	}
 	
-	public function nameApplication($v=null){
-		if($v==null){
-			return $this->nameApp;
-		}else{
-			$this->nameApp = $v;
-			return $this;
-		}
-	}
 	
 	public function nameTemplate($v=null){
 		if($v==null){
@@ -74,7 +61,7 @@ class Template{
 	}
 	
 	public function getPathTemplate(){
-		return PATH_ROOT.$this->pathTemplate.$this->nameApplication().'_'.$this->nameTemplate().'/tpl/';
+		return PATH_ROOT.$this->pathTemplate.$this->nameTemplate().'/files_tpl/';
 	}
 
 	
