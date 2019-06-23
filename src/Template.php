@@ -21,6 +21,9 @@ class Template{
 
 	public function render(){
 		if(!empty($this->fileTemplate()) && file_exists($this->getPathTemplate().$this->fileTemplate())){
+			$timer=\Performace::getInstance('Timer');
+			$timer->register('twig',microtime(true));
+		
 			$loader = new \Twig\Loader\FilesystemLoader($this->getPathTemplate());
 
 			$this->twig = new \Twig\Environment($loader, [
@@ -28,6 +31,7 @@ class Template{
 			]);
 
 			echo $this->twig->render($this->fileTemplate(), $this->replaceAllHtml);
+			$timer->register('twig',microtime(true));
 		}else{
 			throw new \Exception('Template '.$this->fileTemplate().' not found '.$this->getPathTemplate().$this->fileTemplate(), 1);
 			
