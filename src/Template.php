@@ -65,7 +65,7 @@ class Template{
 	}
 	
 	public function getPathTemplate(){
-		return PATH_ROOT.$this->pathTemplate.$this->nameTemplate().'/files_tpl/';
+		return PATH_ROOT.$this->pathTemplate.$this->nameTemplate().'/src/views/';
 	}
 
 	
