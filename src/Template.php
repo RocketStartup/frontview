@@ -10,8 +10,8 @@ class Template{
 	private $useCache 				= false;
 	private $twig 			 		= null;
 	private $fileTemplate 			= '404.tpl';
-	private $pathTemplate 			= 'sources/';
-	private $pathCache 				= 'storage/apps/cache/';
+	private $pathTemplate 			= 'templates/';
+	private $pathCache 				= 'tmp/apps/cache/';
 
 	
 	public function __construct(){
