@@ -37,6 +37,27 @@ class Template{
 			
 		}
 	}
+
+	public function returnHtml(){
+		if(!empty($this->fileTemplate()) && file_exists($this->getPathTemplate().$this->fileTemplate())){
+			$timer=\Performace::getInstance('Timer');
+			$timer->register('twig',microtime(true));
+		
+			$loader = new \Twig\Loader\FilesystemLoader($this->getPathTemplate());
+
+			$this->twig = new \Twig\Environment($loader, [
+				'cache' => ($this->useCache()==false?false:PATH_ROOT.$this->pathCache.$this->nameTemplate())
+			]);
+
+			$html =  $this->twig->render($this->fileTemplate(), $this->replaceAllHtml);
+			$timer->register('twig',microtime(true));
+
+			return $html;
+		}else{
+			throw new \Exception('Template '.$this->fileTemplate().' not found '.$this->getPathTemplate().$this->fileTemplate(), 1);
+			
+		}
+	}
 	
 	
 	public function nameTemplate($v=null){
